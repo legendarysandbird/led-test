@@ -1,12 +1,8 @@
-# blink
+# led-test 
 
-A small Hello World Rust application for the AVR.
+This repository was cloned from the AVR-Rust.
 
-The program itself toggles a LED on PORTB periodically.
-
-Designed for the ATmega328p.
-
-[The AVR-Rust Book](https://book.avr-rust.com/)
+I have changed it a little bit to work with an RGB light.
 
 ## Prerequisites
 
@@ -17,22 +13,9 @@ Designed for the ATmega328p.
 
 ## Usage
 
+To build the project I made a simple run script.
 
-Now to build, run:
-
-```bash
-rustup override set nightly
-
-# Ensure time delays are consistent with a 16MHz microcontroller.
-export AVR_CPU_FREQUENCY_HZ=16000000
-
-# Compile the crate to an ELF executable.
-cargo build -Z build-std=core --target avr-atmega328p.json --release
-
-```
-There should now be an ELF file at `target/avr-atmega328p/release/blink.elf`. It
-can be flashed directly to an AVR microcontroller or ran inside a simulator.
-
+./run.sh
 
 ## Resources
 
