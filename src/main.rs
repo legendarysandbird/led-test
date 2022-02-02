@@ -8,14 +8,23 @@ use ruduino::cores::current::{port};
 
 #[no_mangle]
 pub extern fn main() {
-    port::B5::set_output();
+    port::D6::set_output();
+    port::D5::set_output();
+    port::D3::set_output();
 
     loop {
-        port::B5::set_high();
+        port::D3::set_low();
+        port::D6::set_high();
 
         ruduino::delay::delay_ms(1000);
 
-        port::B5::set_low();
+        port::D6::set_low();
+        port::D5::set_high();
+
+        ruduino::delay::delay_ms(1000);
+
+        port::D5::set_low();
+        port::D3::set_high();
 
         ruduino::delay::delay_ms(1000);
     }
