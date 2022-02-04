@@ -30,12 +30,6 @@ pub extern fn main() {
 
         if port::B5::is_low() && !just_pressed {
             just_pressed = true;
-        } else if port::B5::is_high() {
-            just_pressed = false;
-        }
-
-
-        if just_pressed {
             match color {
                 Color::Red => {
                     color = Color::Green;
@@ -53,7 +47,8 @@ pub extern fn main() {
                     port::D6::set_high();
                 },
             }
-            ruduino::delay::delay_ms(500);
+        } else if port::B5::is_high() {
+            just_pressed = false;
         }
     }
 }
